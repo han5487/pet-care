@@ -13,8 +13,11 @@ export function BookingForm() {
     const data = new FormData(form);
     const name = data.get("name")?.toString().trim() ?? "";
     const pet = data.get("pet")?.toString().trim() ?? "";
+    const expectedDate = data.get("expectedDate")?.toString().trim() ?? "";
+    const expectedTime = data.get("expectedTime")?.toString().trim() ?? "";
+    const arrivalText = expectedDate && expectedTime ? `，期望 ${expectedDate} ${expectedTime} 到店` : "";
 
-    setStatus(`${name}，已收到 ${pet} 的預約需求。我們會在營業時間內與你確認時段。`);
+    setStatus(`${name}，已收到 ${pet} 的預約需求${arrivalText}。我們會在營業時間內與你確認時段。`);
     formRef.current?.reset();
   }
 
@@ -40,6 +43,24 @@ export function BookingForm() {
           <option>皮毛調理</option>
           <option>全身造型修剪</option>
           <option>貓咪舒緩洗護</option>
+        </select>
+      </div>
+      <div className="field">
+        <label htmlFor="expectedDate">期望到店日期</label>
+        <input id="expectedDate" name="expectedDate" type="date" required />
+      </div>
+      <div className="field">
+        <label htmlFor="expectedTime">期望到店時間</label>
+        <select id="expectedTime" name="expectedTime" required defaultValue="">
+          <option value="">請選擇</option>
+          <option>10:00</option>
+          <option>11:00</option>
+          <option>13:00</option>
+          <option>14:00</option>
+          <option>15:00</option>
+          <option>16:00</option>
+          <option>17:00</option>
+          <option>18:00</option>
         </select>
       </div>
       <div className="field full">

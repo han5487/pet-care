@@ -210,7 +210,68 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 34px;
+      margin-bottom: 18px;
+    }
+
+    .arrival-picker {
+      width: min(100%, 620px);
+      margin-bottom: 28px;
+      padding: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      background: rgba(10, 31, 33, 0.54);
+      box-shadow: 0 18px 45px rgba(4, 18, 19, 0.18);
+      backdrop-filter: blur(14px);
+    }
+
+    .arrival-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .arrival-head span {
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .arrival-head b {
+      color: #d4ede8;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .arrival-fields {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: end;
+    }
+
+    .arrival-fields label {
+      display: grid;
+      gap: 6px;
+    }
+
+    .arrival-fields label span {
+      color: #effffb;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .arrival-fields .button {
+      min-height: 46px;
+      white-space: nowrap;
+    }
+
+    .arrival-status {
+      min-height: 22px;
+      margin: 10px 0 0;
+      color: #d4ede8;
+      font-size: 14px;
     }
 
     .hero-note {
@@ -869,6 +930,7 @@
       }
 
       .hero-note,
+      .arrival-fields,
       .service-grid,
       .price-grid,
       .review-grid,

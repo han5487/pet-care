@@ -1,4 +1,5 @@
 import { BookingForm } from "./components/BookingForm";
+import { ArrivalTimePicker } from "./components/ArrivalTimePicker";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
                 <a className="button" href="#booking">立即預約</a>
                 <a className="button secondary" href="#pricing">查看價格</a>
               </div>
+              <ArrivalTimePicker />
               <div className="hero-note" aria-label="店家特色">
                 <div>
                   <strong>1 對 1</strong>
