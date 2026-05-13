@@ -607,6 +607,31 @@
       background: linear-gradient(180deg, white, #eef8f4);
     }
 
+    .review-carousel {
+      position: relative;
+      overflow: hidden;
+      padding: 4px 0 14px;
+      mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+
+    .review-track {
+      display: flex;
+      width: max-content;
+      gap: 18px;
+      animation: reviewSlide 38s linear infinite;
+    }
+
+    .review-carousel:hover .review-track {
+      animation-play-state: paused;
+    }
+
+    .review-card {
+      flex: 0 0 clamp(280px, 31vw, 360px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .stars {
       margin-bottom: 14px;
       color: #dc9a15;
@@ -629,6 +654,16 @@
       border-radius: 50%;
       background: var(--mint);
       color: var(--teal-dark);
+    }
+
+    @keyframes reviewSlide {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-50% - 9px));
+      }
     }
 
     .booking {
@@ -821,7 +856,6 @@
 
       .service-grid,
       .price-grid,
-      .review-grid,
       .timeline {
         grid-template-columns: 1fr 1fr;
       }
@@ -878,11 +912,20 @@
       .hero-note,
       .service-grid,
       .price-grid,
-      .review-grid,
       .timeline,
       .feature-panel,
       .booking-form {
         grid-template-columns: 1fr;
+      }
+
+      .review-carousel {
+        margin-inline: -12px;
+        padding-left: 12px;
+        mask-image: linear-gradient(90deg, #000 0, #000 86%, transparent);
+      }
+
+      .review-card {
+        flex-basis: min(86vw, 330px);
       }
 
       .booking-form {
@@ -891,6 +934,21 @@
 
       .footer-inner {
         flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .review-carousel {
+        overflow-x: auto;
+        mask-image: none;
+      }
+
+      .review-track {
+        animation: none;
+      }
+
+      .review-card.duplicate {
+        display: none;
       }
     }
   </style>
@@ -1113,22 +1171,69 @@
           <h2>毛爸媽放心交給我們。</h2>
           <p>每次服務都會回報狀態，讓你知道毛孩今天表現得如何。</p>
         </div>
-        <div class="review-grid">
+        <div class="review-carousel" aria-label="客戶評價輪播">
+          <div class="review-track">
           <article class="review-card">
             <div class="stars" aria-label="五星評價">★★★★★</div>
-            <p>我家狗很怕吹風，第一次洗完沒有崩潰，美容師還把耳朵狀況講得很清楚。</p>
+            <p>我家狗很怕吹風，第一次洗完沒有崩潰。美容師會分段休息，還把耳朵狀況講得很清楚。</p>
             <div class="reviewer"><span class="avatar">林</span>布丁的家人</div>
           </article>
           <article class="review-card">
             <div class="stars" aria-label="五星評價">★★★★★</div>
-            <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡。</p>
+            <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡，家人都說像變亮了。</p>
             <div class="reviewer"><span class="avatar">陳</span>Momo 的家人</div>
           </article>
           <article class="review-card">
             <div class="stars" aria-label="五星評價">★★★★★</div>
-            <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定，接回來也很放鬆。</p>
+            <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定。接回來沒有躲起來，晚上還正常吃飯。</p>
             <div class="reviewer"><span class="avatar">許</span>烏龍的家人</div>
           </article>
+          <article class="review-card">
+            <div class="stars" aria-label="五星評價">★★★★★</div>
+            <p>預約前先問皮膚狀況，洗完也會拍照回報。對第一次送洗的我們來說，安心很多。</p>
+            <div class="reviewer"><span class="avatar">黃</span>奶茶的家人</div>
+          </article>
+          <article class="review-card">
+            <div class="stars" aria-label="五星評價">★★★★★</div>
+            <p>老狗站不久，店裡會調整流程慢慢來。修完腳底毛後走路穩很多，細節真的有顧到。</p>
+            <div class="reviewer"><span class="avatar">周</span>Lucky 的家人</div>
+          </article>
+          <article class="review-card">
+            <div class="stars" aria-label="五星評價">★★★★★</div>
+            <p>不會硬推加購，會直接說哪些保養現在需要、哪些可以觀察。這種誠實感很難得。</p>
+            <div class="reviewer"><span class="avatar">吳</span>米粒的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>我家狗很怕吹風，第一次洗完沒有崩潰。美容師會分段休息，還把耳朵狀況講得很清楚。</p>
+            <div class="reviewer"><span class="avatar">林</span>布丁的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡，家人都說像變亮了。</p>
+            <div class="reviewer"><span class="avatar">陳</span>Momo 的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定。接回來沒有躲起來，晚上還正常吃飯。</p>
+            <div class="reviewer"><span class="avatar">許</span>烏龍的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>預約前先問皮膚狀況，洗完也會拍照回報。對第一次送洗的我們來說，安心很多。</p>
+            <div class="reviewer"><span class="avatar">黃</span>奶茶的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>老狗站不久，店裡會調整流程慢慢來。修完腳底毛後走路穩很多，細節真的有顧到。</p>
+            <div class="reviewer"><span class="avatar">周</span>Lucky 的家人</div>
+          </article>
+          <article class="review-card duplicate" aria-hidden="true">
+            <div class="stars">★★★★★</div>
+            <p>不會硬推加購，會直接說哪些保養現在需要、哪些可以觀察。這種誠實感很難得。</p>
+            <div class="reviewer"><span class="avatar">吳</span>米粒的家人</div>
+          </article>
+          </div>
         </div>
       </div>
     </section>

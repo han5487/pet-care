@@ -661,6 +661,31 @@
       background: linear-gradient(180deg, white, #eef8f4);
     }
 
+    .review-carousel {
+      position: relative;
+      overflow: hidden;
+      padding: 4px 0 14px;
+      mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    }
+
+    .review-track {
+      display: flex;
+      width: max-content;
+      gap: 18px;
+      animation: reviewSlide 38s linear infinite;
+    }
+
+    .review-carousel:hover .review-track {
+      animation-play-state: paused;
+    }
+
+    .review-card {
+      flex: 0 0 clamp(280px, 31vw, 360px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .stars {
       margin-bottom: 14px;
       color: #dc9a15;
@@ -683,6 +708,16 @@
       border-radius: 50%;
       background: var(--mint);
       color: var(--teal-dark);
+    }
+
+    @keyframes reviewSlide {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-50% - 9px));
+      }
     }
 
     .booking {
@@ -875,7 +910,6 @@
 
       .service-grid,
       .price-grid,
-      .review-grid,
       .timeline {
         grid-template-columns: 1fr 1fr;
       }
@@ -933,11 +967,20 @@
       .arrival-fields,
       .service-grid,
       .price-grid,
-      .review-grid,
       .timeline,
       .feature-panel,
       .booking-form {
         grid-template-columns: 1fr;
+      }
+
+      .review-carousel {
+        margin-inline: -12px;
+        padding-left: 12px;
+        mask-image: linear-gradient(90deg, #000 0, #000 86%, transparent);
+      }
+
+      .review-card {
+        flex-basis: min(86vw, 330px);
       }
 
       .booking-form {
@@ -946,5 +989,20 @@
 
       .footer-inner {
         flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .review-carousel {
+        overflow-x: auto;
+        mask-image: none;
+      }
+
+      .review-track {
+        animation: none;
+      }
+
+      .review-card.duplicate {
+        display: none;
       }
     }

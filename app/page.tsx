@@ -222,22 +222,69 @@ export default function Home() {
                 <h2>毛爸媽放心交給我們。</h2>
                 <p>每次服務都會回報狀態，讓你知道毛孩今天表現得如何。</p>
               </div>
-              <div className="review-grid">
+              <div className="review-carousel" aria-label="客戶評價輪播">
+                <div className="review-track">
                 <article className="review-card">
                   <div className="stars" aria-label="五星評價">★★★★★</div>
-                  <p>我家狗很怕吹風，第一次洗完沒有崩潰，美容師還把耳朵狀況講得很清楚。</p>
+                  <p>我家狗很怕吹風，第一次洗完沒有崩潰。美容師會分段休息，還把耳朵狀況講得很清楚。</p>
                   <div className="reviewer"><span className="avatar">林</span>布丁的家人</div>
                 </article>
                 <article className="review-card">
                   <div className="stars" aria-label="五星評價">★★★★★</div>
-                  <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡。</p>
+                  <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡，家人都說像變亮了。</p>
                   <div className="reviewer"><span className="avatar">陳</span>Momo 的家人</div>
                 </article>
                 <article className="review-card">
                   <div className="stars" aria-label="五星評價">★★★★★</div>
-                  <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定，接回來也很放鬆。</p>
+                  <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定。接回來沒有躲起來，晚上還正常吃飯。</p>
                   <div className="reviewer"><span className="avatar">許</span>烏龍的家人</div>
                 </article>
+                <article className="review-card">
+                  <div className="stars" aria-label="五星評價">★★★★★</div>
+                  <p>預約前先問皮膚狀況，洗完也會拍照回報。對第一次送洗的我們來說，安心很多。</p>
+                  <div className="reviewer"><span className="avatar">黃</span>奶茶的家人</div>
+                </article>
+                <article className="review-card">
+                  <div className="stars" aria-label="五星評價">★★★★★</div>
+                  <p>老狗站不久，店裡會調整流程慢慢來。修完腳底毛後走路穩很多，細節真的有顧到。</p>
+                  <div className="reviewer"><span className="avatar">周</span>Lucky 的家人</div>
+                </article>
+                <article className="review-card">
+                  <div className="stars" aria-label="五星評價">★★★★★</div>
+                  <p>不會硬推加購，會直接說哪些保養現在需要、哪些可以觀察。這種誠實感很難得。</p>
+                  <div className="reviewer"><span className="avatar">吳</span>米粒的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>我家狗很怕吹風，第一次洗完沒有崩潰。美容師會分段休息，還把耳朵狀況講得很清楚。</p>
+                  <div className="reviewer"><span className="avatar">林</span>布丁的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>剪得很自然，沒有把臉修得太誇張。回家後毛也蓬鬆好摸，香味很淡，家人都說像變亮了。</p>
+                  <div className="reviewer"><span className="avatar">陳</span>Momo 的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>貓咪洗澡前會先討論個性，整個過程比想像中穩定。接回來沒有躲起來，晚上還正常吃飯。</p>
+                  <div className="reviewer"><span className="avatar">許</span>烏龍的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>預約前先問皮膚狀況，洗完也會拍照回報。對第一次送洗的我們來說，安心很多。</p>
+                  <div className="reviewer"><span className="avatar">黃</span>奶茶的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>老狗站不久，店裡會調整流程慢慢來。修完腳底毛後走路穩很多，細節真的有顧到。</p>
+                  <div className="reviewer"><span className="avatar">周</span>Lucky 的家人</div>
+                </article>
+                <article className="review-card duplicate" aria-hidden="true">
+                  <div className="stars">★★★★★</div>
+                  <p>不會硬推加購，會直接說哪些保養現在需要、哪些可以觀察。這種誠實感很難得。</p>
+                  <div className="reviewer"><span className="avatar">吳</span>米粒的家人</div>
+                </article>
+                </div>
               </div>
             </div>
           </section>
