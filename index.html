@@ -645,9 +645,13 @@
 
     .location-panel {
       display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      gap: 34px;
+      grid-template-columns: 1fr;
+      gap: 26px;
       align-items: start;
+    }
+
+    .location-panel > div {
+      max-width: 840px;
     }
 
     .booking h2 {
@@ -662,6 +666,7 @@
 
     .contact-lines {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 28px;
     }
@@ -684,9 +689,11 @@
     }
 
     .location-card img {
+      display: block;
       width: 100%;
-      aspect-ratio: 16 / 10;
-      object-fit: cover;
+      aspect-ratio: 3 / 2;
+      background: #eaf6f2;
+      object-fit: contain;
     }
 
     .location-caption {
@@ -809,10 +816,13 @@
 
       .section-head,
       .feature-layout,
-      .booking-layout,
-      .location-panel {
+      .booking-layout {
         grid-template-columns: 1fr;
         display: grid;
+      }
+
+      .contact-lines {
+        grid-template-columns: 1fr;
       }
 
       .location-card {
