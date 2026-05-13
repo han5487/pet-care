@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 
 const timeSlots = [
+  "09:30",
   "10:00",
   "11:00",
   "13:00",
@@ -20,9 +21,17 @@ function getToday() {
   return local.toISOString().slice(0, 10);
 }
 
+function getTomorrow() {
+  const now = new Date();
+  now.setDate(now.getDate() + 1);
+  const offset = now.getTimezoneOffset();
+  const local = new Date(now.getTime() - offset * 60 * 1000);
+  return local.toISOString().slice(0, 10);
+}
+
 export function ArrivalTimePicker() {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [date, setDate] = useState(getTomorrow);
+  const [time, setTime] = useState("09:30");
   const [message, setMessage] = useState("");
   const today = getToday();
 
