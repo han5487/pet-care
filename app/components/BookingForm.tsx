@@ -2,9 +2,18 @@
 
 import { FormEvent, useRef, useState } from "react";
 
+function getTomorrow() {
+  const now = new Date();
+  now.setDate(now.getDate() + 1);
+  const offset = now.getTimezoneOffset();
+  const local = new Date(now.getTime() - offset * 60 * 1000);
+  return local.toISOString().slice(0, 10);
+}
+
 export function BookingForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState("");
+  const defaultExpectedDate = getTomorrow();
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -47,12 +56,12 @@ export function BookingForm() {
       </div>
       <div className="field">
         <label htmlFor="expectedDate">期望到店日期</label>
-        <input id="expectedDate" name="expectedDate" type="date" required />
+        <input id="expectedDate" name="expectedDate" type="date" required defaultValue={defaultExpectedDate} />
       </div>
       <div className="field">
         <label htmlFor="expectedTime">期望到店時間</label>
-        <select id="expectedTime" name="expectedTime" required defaultValue="">
-          <option value="">請選擇</option>
+        <select id="expectedTime" name="expectedTime" required defaultValue="09:30">
+          <option>09:30</option>
           <option>10:00</option>
           <option>11:00</option>
           <option>13:00</option>
